@@ -1,0 +1,35 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": "logs:CreateLogGroup",
+			"Resource": "arn:aws:logs:{region}:{AccountID}:*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"logs:CreateLogStream",
+				"logs:PutLogEvents"
+			],
+			"Resource": [
+				"arn:aws:logs:{region}:{AccountID}:log-group:/aws/lambda/aws-app-bedrock:*"
+			]
+		},
+		{
+			"Effect": "Allow",
+			"Action": "bedrock:InvokeModel",
+			"Resource": "arn:aws:bedrock:*::foundation-model/*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "bedrock:InvokeModel",
+			"Resource": "arn:aws:bedrock:us-east-1::foundation-model/meta.llama3-8b-instruct-v1:0"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "s3:PutObject",
+			"Resource": "arn:aws:s3:::aws-bedrock-demo-course/blog-output/*"
+		}
+	]
+}
