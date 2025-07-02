@@ -13,7 +13,7 @@
 				"logs:PutLogEvents"
 			],
 			"Resource": [
-				"arn:aws:logs:{region}:{AccountID}:log-group:/aws/lambda/aws-app-bedrock:*"
+				"arn:aws:logs:{region}:{AccountID}:log-group:/aws/lambda/{lambda_function_name}:*"
 			]
 		},
 		{
@@ -29,7 +29,7 @@
 		{
 			"Effect": "Allow",
 			"Action": "s3:PutObject",
-			"Resource": "arn:aws:s3:::aws-bedrock-demo-course/blog-output/*"
+			"Resource": "arn:aws:s3:::{s3_bucket_name}/blog-output/*"
 		}
 	]
 }
